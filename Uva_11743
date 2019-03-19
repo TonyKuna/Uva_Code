@@ -1,0 +1,74 @@
+#include<iostream>
+#include<math.h>
+
+using namespace std;
+
+int main(){
+	
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	
+	int n,sum;
+	cin >> n;
+	char num[16];
+	
+	while(n>0){
+		sum = 0;
+		for(int i=0; i<16; i++){
+			cin >> num[i];
+			if(i%2==0){
+				switch(num[i]){
+				
+				case '0':
+					sum+=0;
+					break;
+				case '1':
+					sum+=2;
+					break;
+				case '2':
+					sum+=4;
+					break;
+				case '3':
+					sum+=6;
+					break;
+				case '4':
+					sum+=8;
+					break;
+				case '5':
+					sum+=1;
+					break;
+				case '6':
+					sum+=3;
+					break;	
+				case '7':
+					sum+=5;
+					break;
+				case '8':
+					sum+=7;
+					break;
+				case '9':
+					sum+=9;
+					break;
+				default:
+					break;
+			}
+			}
+		}
+		for(int i=1; i<16; i+=2){
+			sum+=num[i]-48;
+		}
+		
+		if(sum%10==0){
+			cout << "Valid\n";
+		}else{
+			cout << "Invalid\n";
+		}
+		
+		n--;
+		
+	} 
+
+	return 0;
+
+}
+
