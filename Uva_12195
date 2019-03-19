@@ -1,0 +1,67 @@
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+int main(){
+	
+	string str;
+	int ans;
+	float sum;
+	
+	while(cin >> str){
+	
+	if(str[0]=='*'){
+		return 0;
+	}else{
+		ans=0;
+		sum=0;
+		for(int i=1; i<str.length(); i++){
+			if(str[i]=='/'){
+				//cout << sum << endl;
+				if(sum==1){
+					ans++;
+				}
+				sum=0;
+			}else{
+					switch(str[i]){
+						case 'W':
+							sum+= 1;
+							break;
+		 
+						case 'H':
+							sum+= 0.5;
+							break;
+			
+						case 'Q':
+							sum+= 0.25;
+							break;
+		
+						case 'E':
+							sum+= 0.125;
+							break;
+			
+						case 'S':
+							sum+= 0.0625;
+							break;
+			
+						case 'T':
+							sum+= 0.03125;
+							break;
+			
+						case 'X':		
+							sum+= 0.015625;
+							break;
+			
+						default:
+						break;
+			}
+			}
+		}
+		cout << ans << "\n";
+	}
+
+	}
+
+}
+
