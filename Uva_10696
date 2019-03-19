@@ -1,0 +1,30 @@
+#include<iostream>
+#include<string> 
+using namespace std;
+
+int f91(long long int n){
+	if(n<=100){
+		return f91(f91(n+11));
+	}else if(n>=101){
+		return n-10;
+	}
+}
+
+int main(){
+	
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	
+	long long int N;
+	
+	while(cin >> N){
+		if(N==0){
+			break;
+		}else{
+			cout << "f91(" << N << ") = " << f91(N) << "\n";
+		}
+	}
+	
+	return 0;
+	
+}
