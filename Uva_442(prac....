@@ -1,0 +1,45 @@
+#include<iostream>
+#include<string>
+using namespace std;
+int x[128][2];
+int n;
+string line;
+int i,ans;
+int cal(int let){
+	i++;
+	if(line[i]=='('){
+		return cal(let);
+	}else if(line[i]==')'){
+		return cal(let);
+	}else if(line[i]==NULL){
+		return 1;
+	}else{
+		if(let==0){
+			let = line[i];
+			return cal(let);
+		}
+		if(x[let][1]==x[line[i]][0]){
+			ans += x[let][1]*x[let][0]*x[line[i]][1];
+			x[let][1]=x[line[i]][1];
+			return cal(let);	
+		}else{
+			return -1;
+		}
+	}
+}
+int main()
+{
+	cin >> n;
+	for(int i=0;i<n;i++){
+		int let;
+		cin >> let;
+		cin >> x[let][0] >> x[let][1];;
+	}
+	while(getline(cin,line)){
+		ans = 0;
+		i = 0;
+		int j=cal(0);
+	}
+
+	return 0;
+}
